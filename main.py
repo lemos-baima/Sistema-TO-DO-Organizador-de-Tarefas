@@ -30,3 +30,18 @@ def definir_prioridade():
         tarefa['peso'] = 1
 
     print(f"Prioridade da tarefa '{tarefa['nome']}' definida como {tarefa['prioridade']}.\n")
+
+def marcar_tarefa_como_concluida(tarefas):
+    print("\nLista de tarefas:")
+    for i in range(len(tarefas)):
+        print(f"{i+1}. {tarefas[i]}")
+
+    escolha = int(input("\nDigite o número da tarefa concluída: ")) - 1
+
+    if 0 <= escolha < len(tarefas):
+        tarefa = tarefas.pop(escolha)
+        print(f"\nTarefa concluída: {tarefa}")
+    else:
+        print("\nNúmero inválido")
+
+    
