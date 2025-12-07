@@ -17,21 +17,11 @@ def adicionar_tarefa(lista_tarefas):
             print("Erro: a tarefa não pode estar vazia!")
             continue
 
-        lista_tarefas.append(tarefa)
-        print(f"Tarefa adicionada: {tarefa}")
 
-        # Perguntar se quer adicionar mais
+        # Perguntar se o usuário quer  adicionar mais tarefas
         continuar = perguntar_sim_nao("Deseja adicionar outra tarefa? (s/n): ")
         if continuar == 'n':
             break
-
-
-def mostrar_tarefas(lista_tarefas):
-
-    print("\n--- Tarefas ---")
-    for i, tarefa in enumerate(lista_tarefas, start=1):
-        print(f"{i}. {tarefa}")
-    print("---------------\n")
 
 
 # ---------------- PROGRAMA PRINCIPAL ----------------
@@ -41,10 +31,8 @@ def main():
 
     print("=== SISTEMA DE GERENCIAMENTO DE TAREFAS ===")
 
-    adicionar_tarefa(tarefas)
-
-    # Só para mostrar que funcionou
-    mostrar_tarefas(tarefas)
+    adicionar_tarefa(tarefas) 
+    print('tarefa adicionada com sucesso!')  
 
 
 # Executa o programa
