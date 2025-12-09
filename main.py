@@ -1,40 +1,26 @@
-def perguntar_sim_nao(mensagem):
-    """Função que aceita apenas 's' ou 'n'."""
-    resposta = input(mensagem).strip().lower()
-    while resposta not in ['s', 'n']:
-        print("Erro: digite apenas 's' para sim ou 'n' para não.")
-        resposta = input(mensagem).strip().lower()
-    return resposta
+import os
 
+lista_tarefas = []
 
-def adicionar_tarefa(lista_tarefas):
-    """Função para adicionar tarefas validando tudo corretamente."""
-    while True:
-        tarefa = input("Digite a tarefa que deseja adicionar: ").strip()
-
-        # Impedir tarefas vazias
-        if tarefa == "":
-            print("Erro: a tarefa não pode estar vazia!")
-            continue
-
+def adicionar_tarefa():
+    nome = input("Digite o nome da tarefa: ")
+    if nome.strip() != "":
+        tarefa = {"descricao": nome, "status": "Pendente"}
         lista_tarefas.append(tarefa)
-        print(f"Tarefa adicionada: {tarefa}")
-
-        # Perguntar se o usuário quer adicionar mais tarefas
-        continuar = perguntar_sim_nao("Deseja adicionar outra tarefa? (s/n): ")
-        if continuar == 'n':
-            break
+        print("Tarefa adicionada!")
+        salvar_dados()
+    else:
+        print("Nome inválido")
 
 
-# --------------- PROGRAMA PRINCIPAL ---------------
-
-def main():
-    tarefas = []
-
-    print("=== SISTEMA DE GERENCIAMENTO DE TAREFAS ===")
-
-    adicionar_tarefa(tarefas)
+def menu():
+    print("1 - Adicionar")
 
 
-# Executa o programa
-main()
+while True:
+    print("\n Gerenciador de Tarefas")
+    menu()
+    opc = input("Opção: ")
+
+    if opc == "1":
+        adicionar_tarefa()
