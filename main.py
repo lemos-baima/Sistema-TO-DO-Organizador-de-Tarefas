@@ -23,9 +23,29 @@ def listar_tarefas():
     print()
 
 
+def editar_tarefa():
+    listar_tarefas()
+    try:
+        n = int(input("Qual editar? "))
+        idx = n - 1
+        if 0 <= idx < len(lista_tarefas):
+            novo = input("Novo nome: ")
+            if novo.strip() != "":
+                lista_tarefas[idx]["descricao"] = novo
+                print("editado")
+                salvar_dados()
+            else:
+                print("inválido")
+        else:
+            print("erro ao editar, essa tarefa não existe")
+    except:
+        print("erro na edição")
+
+
 def menu():
     print("1 - Adicionar")
     print("2 - Listar")
+    print("3 - Editar")
 
 
 while True:
@@ -37,3 +57,5 @@ while True:
         adicionar_tarefa()
     elif opc == "2":
         listar_tarefas()
+    elif opc == "3":
+        editar_tarefa()
